@@ -252,14 +252,14 @@ function drawChart() {
 
 
 async function getTemp(){
-    let resp1 = await fetch(`http://api.weatherapi.com/v1/current.json?key=d320d06ad274490d95a173800240904&q=${val}&aqi=no`)
+    let resp1 = await fetch(`https://api.weatherapi.com/v1/current.json?key=d320d06ad274490d95a173800240904&q=${val}&aqi=no`)
     let resp2 = await resp1.json()
     // console.log(resp2.current.temp_c);
     return resp2.current.temp_c
 }
 
 async function getTime(){
-    let resp1 = await fetch('http://api.weatherapi.com/v1/current.json?key=d320d06ad274490d95a173800240904&q=Patna&aqi=no')
+    let resp1 = await fetch('https://api.weatherapi.com/v1/current.json?key=d320d06ad274490d95a173800240904&q=Patna&aqi=no')
     let resp2 = await resp1.json()
     // console.log(resp2);
     return resp2.location.localtime;
