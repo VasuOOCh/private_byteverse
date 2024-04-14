@@ -118,11 +118,9 @@
                         <input type="text" name="searchbox" id="searchbox" required placeholder="How can I assist you today ?">
                         <button>Submit</button>
                     </form>
-                    <span class="loader"></span>
                 <div class="answer">
                     <%= msg %>
                 </div>
-                
             </div>
         </div>
 
@@ -252,21 +250,21 @@ function drawChart() {
 
 
 async function getTemp(){
-    let resp1 = await fetch(`https://api.weatherapi.com/v1/current.json?key=d320d06ad274490d95a173800240904&q=${val}&aqi=no`)
+    let resp1 = await fetch(`http://api.weatherapi.com/v1/current.json?key=d320d06ad274490d95a173800240904&q=${val}&aqi=no`)
     let resp2 = await resp1.json()
     // console.log(resp2.current.temp_c);
     return resp2.current.temp_c
 }
 
 async function getTime(){
-    let resp1 = await fetch('https://api.weatherapi.com/v1/current.json?key=d320d06ad274490d95a173800240904&q=Patna&aqi=no')
+    let resp1 = await fetch('http://api.weatherapi.com/v1/current.json?key=d320d06ad274490d95a173800240904&q=Patna&aqi=no')
     let resp2 = await resp1.json()
     // console.log(resp2);
     return resp2.location.localtime;
 }
 
 async function getText(){
-    let resp1 = await fetch('https://api.weatherapi.com/v1/current.json?key=d320d06ad274490d95a173800240904&q=Patna&aqi=no')
+    let resp1 = await fetch('http://api.weatherapi.com/v1/current.json?key=d320d06ad274490d95a173800240904&q=Patna&aqi=no')
     let resp2 = await resp1.json()
     // console.log(resp2.current.condition.text);
     return resp2.current.condition.text;
@@ -303,9 +301,6 @@ document.querySelector("#location").addEventListener("change",()=>{
 
 })
 
-    document.querySelector(".searchSection").addEventListener("submit",()=>{
-        document.querySelector(".loader").style.display= "block";
-    })
 
     </script>
 
