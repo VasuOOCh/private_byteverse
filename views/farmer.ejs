@@ -118,9 +118,11 @@
                         <input type="text" name="searchbox" id="searchbox" required placeholder="How can I assist you today ?">
                         <button>Submit</button>
                     </form>
+                    <span class="loader"></span>
                 <div class="answer">
                     <%= msg %>
                 </div>
+                
             </div>
         </div>
 
@@ -301,6 +303,9 @@ document.querySelector("#location").addEventListener("change",()=>{
 
 })
 
+    document.querySelector(".searchSection").addEventListener("submit",()=>{
+        document.querySelector(".loader").style.display= "block";
+    })
 
     </script>
 

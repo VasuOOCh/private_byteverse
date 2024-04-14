@@ -36,7 +36,7 @@ const connection = mysql.createConnection({
 
 
 const anthropic = new Anthropic({
-    apiKey: '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', // This is the default and can be omitted
+    apiKey: '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', // This is the default and can be omitted
     });
 
 async function answer(ques) {
