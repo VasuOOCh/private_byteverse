@@ -5,6 +5,8 @@ const methodOverride = require('method-override');
 const mysql = require('mysql2');
 const { uuid } = require('uuidv4');
 const Anthropic = require('@anthropic-ai/sdk');
+const dotenv = require('dotenv');
+dotenv.config();
 
 app.use(express.urlencoded({extended : true}));
 app.use(express.json());
@@ -36,7 +38,7 @@ const connection = mysql.createConnection({
 
 
 const anthropic = new Anthropic({
-    apiKey: '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', // This is the default and can be omitted
+    apiKey: process.env.API_KEY // This is the default and can be omitted
     });
 
 async function answer(ques) {
