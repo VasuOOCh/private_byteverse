@@ -21,18 +21,12 @@ app.use(express.static(path.join(__dirname, "/public")));
 let msg = "";
 let crop1 = "", crop2 = "";
 
-// const connection = mysql.createConnection({
-//     host: 'localhost',
-//     user: 'root',
-//     database: 'agora_byte',
-//     password : "Vasu@12042005"
-//   });
 
 const connection = mysql.createConnection({
   host: 'bnwcrsaywao89zzbuqnm-mysql.services.clever-cloud.com',
   user: 'u33a0sks532sq8zq',
   database: 'bnwcrsaywao89zzbuqnm',
-  password : "VfCEQjcZ0hVUa62Ycxnv"
+  password : process.env.MYSQL_PASS
 });
 
 
@@ -49,11 +43,23 @@ async function answer(ques) {
 });
 
 
-
-// console.log(message.content[0].text)
 return message.content[0].text;
     
 }
+
+app.get("/",(req,res)=>{
+  res.render("index.ejs")
+})
+
+
+app.get("/about",(req,res)=>{
+  res.render("about.ejs")
+})
+
+
+app.get("/contact",(req,res)=>{
+  res.render("contact.ejs")
+})
 
 app.get("/farmer/:farmerId",async (req,res)=>{
   let farm_id = req.params.farmerId;
@@ -128,7 +134,7 @@ app.delete("/delete_order/:farm_id/:product_id",(req,res)=>{
   let product_id = req.params.product_id;
   let farm_id = req.params.farm_id;
   // console.log(farm_id)
-  let q = `DELETE FROM farmorder${farm_id} WHERE product_id = "${product_id}"`
+  let q = `DELETE FROM farmOrder${farm_id} WHERE product_id = "${product_id}"`
 
   connection.query(q,(err,result)=>{
     if(err) throw err;
