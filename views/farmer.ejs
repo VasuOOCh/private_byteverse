@@ -266,7 +266,7 @@ async function getTime(){
 }
 
 async function getText(){
-    let resp1 = await fetch('http://api.weatherapi.com/v1/current.json?key=d320d06ad274490d95a173800240904&q=Patna&aqi=no')
+    let resp1 = await fetch('https://api.weatherapi.com/v1/current.json?key=d320d06ad274490d95a173800240904&q=Patna&aqi=no')
     let resp2 = await resp1.json()
     // console.log(resp2.current.condition.text);
     return resp2.current.condition.text;
